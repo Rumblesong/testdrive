@@ -1,2 +1,2 @@
 # testdrive
-for testing
+for testing purposes & to get to know how
