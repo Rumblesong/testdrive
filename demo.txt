@@ -1,0 +1,11 @@
+/// Calculates the sum of two integers.
+///
+/// This function takes two integer parameters and returns their sum.
+///
+/// - Parameters:
+///   - a: The first integer to add.
+///   - b: The second integer to add.
+/// - Returns: The sum of the two input integers.
+public func add(_ a: Int, _ b: Int) -> Int {
+    return a + b
+}
