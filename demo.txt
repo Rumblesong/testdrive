@@ -1,3 +1,0 @@
-1. korak spuštanje na lokalni PC
-2. korak sync sa githubom
-3. korak - dodavanje ove linije da opet sinkroniziram sa lokalnim PC-jem
