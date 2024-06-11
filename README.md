@@ -2038,3 +2038,533 @@ Međutim, razumijem i zabrinutost oko privatnosti i osjetljivosti snimljenih raz
 U svakom slučaju, cijenio bih mogućnost snimanja naših razgovora ako je to izvedivo na način koji štiti vašu privatnost i osjetljive informacije. To bi mi uvelike pomoglo da nastavim učiti i napredovati kroz naše interakcije.
 
 TRANSKRIPT 10.06.2024.
+
+Naravno, rado ću vam dati po jedan zadatak za listu, rječnik (dict) i polje (niz) kako biste mogli ponoviti i uvježbati svoje znanje. Također ću spomenuti i druge oblike spremanja podataka u Pythonu.
+
+Zadatak za listu: Napravite program koji će od korisnika tražiti da unese nekoliko brojeva (recimo 5). Spremite te brojeve u listu, a zatim izračunajte i ispišite njihovu sumu i prosjek.
+
+Zadatak za rječnik (dict): Napravite program koji će od korisnika tražiti da unese imena i ocjene nekoliko studenata (recimo 3). Spremite te podatke u rječnik, gdje će ključevi biti imena studenata, a vrijednosti njihove ocjene. Zatim ispišite sve parove ime-ocjena iz rječnika.
+
+Zadatak za polje (niz): Napravite program koji će od korisnika tražiti da unese nekoliko riječi (recimo 4). Spremite te riječi u polje (niz) stringova. Zatim ispišite sve riječi iz polja, ali obrnuto od redoslijeda u kojem su unesene.
+
+Osim liste, rječnika (dict) i polja (niza), u Pythonu postoje i drugi oblici spremanja podataka, poput:
+
+Tuple (n-torka) - Slična listi, ali je nepromijenljiva (immutable).
+Set (skup) - Neuredena kolekcija jedinstvenih elemenata.
+Frozenset - Nepromijenljiva (immutable) verzija skupa.
+ByteArray - Niz bajtova (bytes) koji se može mijenjati.
+Memoryview - Sigurna pohrana podataka u binarnom obliku u Pythonu.
+Ovi oblici spremanja podataka imaju svoje specifične primjene i metode za rad s njima. Međutim, lista, rječnik i polje su najčešće korišteni i dobra su polazna točka za uvježbavanje.
+
+Slobodno riješite ove zadatke i ako vam bude potrebna dodatna pomoć ili pojašnjenje, tu sam da vam pomognem. Također, ako imate pitanja o drugim oblicima spremanja podataka, rado ću vam objasniti.
+
+
+
+Try again with different context
+Add context...
+Avatar for miodrag.gvozden
+evo prvi dio: def unesi_brojeve():
+
+    lista_brojeva = []
+
+    while True:
+
+        broj = int(input("Unesi broj: "))
+
+        if broj == 0:
+
+            for zbroj in lista_brojeva:
+
+                zbroj += lista_brojeva.index(zbroj)
+
+            print("Izlazak iz programa")
+
+            print(f"Zboj unesenih brojeva je: {zbroj}")
+
+            break
+
+        else:
+
+            lista_brojeva.append(broj)
+
+
+
+
+unesi_brojeve(), ali pokazi mi zasto ne uracunava vrijednost na 0-tom index liste u zbroj?
+
+U vašem kodu, razlog zašto se vrijednost na 0-tom indeksu liste ne uračunava u zbroj je sljedeća linija:
+
+for zbroj in lista_brojeva:
+    zbroj += lista_brojeva.index(zbroj)
+
+
+
+Ova linija koda neće raditi kako očekujete iz dva razloga:
+
+Varijabla zbroj se ponovno definira u petlji Unutar petlje for zbroj in lista_brojeva:, varijabla zbroj poprima vrijednost svakog elementa iz lista_brojeva u svakoj iteraciji petlje. To znači da se vrijednost zbroj ponovno definira u svakoj iteraciji, umjesto da se akumulira ukupni zbroj.
+
+lista_brojeva.index(zbroj) vraća indeks elementa, a ne njegovu vrijednost Izraz lista_brojeva.index(zbroj) vraća indeks elementa zbroj u listi lista_brojeva, a ne njegovu vrijednost. Dakle, umjesto da se dodaje vrijednost elementa na zbroj, dodaje se indeks tog elementa, što nije ono što želite.
+
+Ispravna implementacija za izračunavanje zbroja elemenata u listi bi bila:
+
+def unesi_brojeve():
+    lista_brojeva = []
+    while True:
+        broj = int(input("Unesi broj: "))
+        if broj == 0:
+            zbroj = sum(lista_brojeva)
+            print("Izlazak iz programa")
+            print(f"Zbroj unesenih brojeva je: {zbroj}")
+            break
+        else:
+            lista_brojeva.append(broj)
+
+unesi_brojeve()
+
+
+
+U ovoj implementaciji, koristimo ugrađenu funkciju sum(lista_brojeva) za izračunavanje zbroja svih elemenata u lista_brojeva. Ova funkcija vraća ukupni zbroj svih elemenata u listi.
+
+Sada bi program trebao ispravno izračunati i ispisati zbroj svih unesenih brojeva, uključujući i vrijednost na 0-tom indeksu liste.
+
+
+
+Try again with different context
+Add context...
+Avatar for miodrag.gvozden
+da radi sa sum. nisam znao za nju. ali evo i rješenja bez sum --> def unesi_brojeve():
+
+    lista_brojeva = []
+
+    zbroj1 = 0
+
+    while True:
+
+        broj = int(input("Unesi broj: "))
+
+        if broj == 0:
+
+            for zbroj in lista_brojeva:
+
+                zbroj1 += zbroj
+
+            #zbroj1 = sum(lista_brojeva)
+
+            print("Izlazak iz programa")
+
+            print(f"Zboj unesenih brojeva je: {zbroj1}")
+
+            break
+
+        else:
+
+            lista_brojeva.append(broj)
+
+
+
+
+unesi_brojeve()
+
+Odlično, vaša implementacija bez korištenja ugrađene sum() funkcije također radi ispravno. Dobro ste primijetili da je problem bio u načinu na koji ste računali zbroj u petlji.
+
+U vašem rješenju:
+
+def unesi_brojeve():
+    lista_brojeva = []
+    zbroj1 = 0
+    while True:
+        broj = int(input("Unesi broj: "))
+        if broj == 0:
+            for zbroj in lista_brojeva:
+                zbroj1 += zbroj
+            print("Izlazak iz programa")
+            print(f"Zbroj unesenih brojeva je: {zbroj1}")
+            break
+        else:
+            lista_brojeva.append(broj)
+
+unesi_brojeve()
+
+
+
+Ključne razlike u odnosu na prethodni pokušaj su:
+
+Inicijalizirali ste zbroj1 varijablu s vrijednošću 0 izvan petlje.
+U petlji for zbroj in lista_brojeva:, varijabla zbroj sada poprima vrijednost svakog elementa iz lista_brojeva, a ne indeks elementa.
+Unutar te petlje, dodajete vrijednost zbroj (koja je sada vrijednost elementa) na zbroj1 akumulator.
+Na ovaj način, vaša implementacija ispravno prolazi kroz sve elemente u lista_brojeva i akumulira njihove vrijednosti u zbroj1 varijabli.
+
+Vaše rješenje je odlično i pokazuje dobro razumijevanje rada s listama i akumuliranja vrijednosti u varijabli. Korištenje ugrađene sum() funkcije je elegantniji i koncizniji način, ali vaša implementacija s petljom također je valjana i dobra za vježbu.
+
+Čestitam na uspješnom rješavanju zadatka! Nastavite vježbati i eksperimentirati s listama i drugim strukturama podataka u Pythonu.
+
+
+
+Try again with different context
+Add context...
+Avatar for miodrag.gvozden
+kako da u klasi koju ja definiram postavim da je parametar polje ili lista?
+
+U Pythonu, kada definirate klasu, možete postaviti da atribut (parametar) te klase bude lista ili polje na sljedeći način:
+
+Za listu:
+
+class MojaKlasa:
+    def __init__(self):
+        self.atribut_lista = []
+        # ili možete inicijalizirati s nekim vrijednostima
+        # self.atribut_lista = [1, 2, 3]
+
+
+
+U ovom primjeru, atribut_lista je atribut klase MojaKlasa koji je inicijaliziran kao prazna lista []. Možete također inicijalizirati listu s nekim početnim vrijednostima, kao u komentiranom primjeru.
+
+Za polje (niz):
+
+class MojaKlasa:
+    def __init__(self):
+        self.atribut_polje = [0] * 5
+        # ili možete inicijalizirati s nekim vrijednostima
+        # self.atribut_polje = [1, 2, 3, 4, 5]
+
+
+
+U ovom slučaju, atribut_polje je atribut klase MojaKlasa koji je inicijaliziran kao polje (niz) duljine 5, gdje su sve vrijednosti postavljene na 0. Možete također inicijalizirati polje s nekim početnim vrijednostima, kao u komentiranom primjeru.
+
+Nakon što ste inicijalizirali atribute kao listu ili polje, možete pristupati i mijenjati njihove vrijednosti koristeći uobičajene operacije za liste ili polja.
+
+Primjer korištenja:
+
+class MojaKlasa:
+    def __init__(self):
+        self.atribut_lista = []
+        self.atribut_polje = [0] * 5
+
+    def dodaj_u_listu(self, element):
+        self.atribut_lista.append(element)
+
+    def postavi_vrijednost_polja(self, indeks, vrijednost):
+        self.atribut_polje[indeks] = vrijednost
+
+# Korištenje klase
+obj = MojaKlasa()
+obj.dodaj_u_listu(10)
+obj.dodaj_u_listu(20)
+obj.postavi_vrijednost_polja(2, 42)
+
+print(obj.atribut_lista)     # Ispisuje: [10, 20]
+print(obj.atribut_polje)     # Ispisuje: [0, 0, 42, 0, 0]
+
+
+
+U ovom primjeru, definirali smo klasu MojaKlasa s atributima atribut_lista (lista) i atribut_polje (polje). Zatim smo definirali metode za dodavanje elemenata u listu i postavljanje vrijednosti na određenom indeksu polja.
+
+Nadam se da je sada jasnije kako možete definirati atribute klase kao listu ili polje u Pythonu.
+
+
+
+Try again with different context
+Add context...
+Avatar for miodrag.gvozden
+jel može metoda u mojoj klasi isto biti samoinicijalizirana sa __init_?
+
+Da, metode u klasi također mogu biti inicijalizirane unutar init metode, zajedno s atributima klase.
+
+init metoda se koristi za inicijalizaciju instance klase, što uključuje postavljanje početnih vrijednosti atributa, ali i definiranje drugih metoda koje će biti vezane uz tu instancu.
+
+Evo primjera kako možete inicijalizirati metodu unutar init metode:
+
+class MojaKlasa:
+    def __init__(self, arg1, arg2):
+        self.atribut1 = arg1
+        self.atribut2 = arg2
+        self.metoda1 = self.definiraj_metodu1()
+        self.metoda2 = self.definiraj_metodu2(arg2)
+
+    def definiraj_metodu1(self):
+        def metoda1(x):
+            return x * self.atribut1
+        return metoda1
+
+    def definiraj_metodu2(self, arg):
+        def metoda2(y):
+            return y + arg
+        return metoda2
+
+# Korištenje klase
+obj = MojaKlasa(2, 3)
+print(obj.metoda1(4))  # Ispisuje: 8
+print(obj.metoda2(5))  # Ispisuje: 8
+
+
+
+U ovom primjeru, klasa MojaKlasa ima dva atributa (atribut1 i atribut2) i dvije metode (metoda1 i metoda2). Metode su inicijalizirane unutar init metode pomoću funkcija definiraj_metodu1 i definiraj_metodu2.
+
+Ove funkcije vraćaju nove funkcije (metoda1 i metoda2) koje su vezane uz instancu klase i imaju pristup atributima instance (self.atribut1 i arg).
+
+Kada se instanca klase obj kreira, metode metoda1 i metoda2 se inicijaliziraju i vežu uz tu instancu. Zatim se te metode mogu pozvati kao obj.metoda1(4) i obj.metoda2(5).
+
+Ovaj pristup inicijalizacije metoda unutar init metode može biti koristan kada želite definirati metode koje ovise o vrijednostima atributa instance ili drugim argumentima koji se prosljeđuju konstruktoru.
+
+Važno je napomenuti da se metode obično definiraju izvan init metode, ali ovaj pristup vam pruža fleksibilnost u slučajevima kada je to potrebno.
+
+
+
+Try again with different context
+Add context...
+Avatar for miodrag.gvozden
+ok nema grešaka ali kod ne izvršava inpute. #zadatak za rječnik
+
+class studenti:
+
+    def __init__(self, ime, ocjene):
+
+        self.ime = str(ime) #provjeri ako dode do greške
+
+        self.ocjene = []
+
+    def unesi_parametre(self):
+
+        self.ime = input("Unesi ime: ")
+
+        # self.ocjene = []
+
+        while True:
+
+            ocjena = int(input("Unesi ocjenu: "))
+
+            if ocjena == 0:
+
+                imenik[self.ime] = self.ocjene
+
+                break
+
+            else:
+
+                self.ocjene.append(ocjena)
+
+   
+
+imenik = {}
+
+unos_studenata = studenti("Ime", [])
+
+
+
+
+for ime, ocjene in imenik.items():
+
+    print(ime, " ", ocjene). što nisam napravio
+
+Evo što primjećujem u vašem kodu:
+
+Kreirate instancu klase studenti s unos_studenata = studenti("Ime", []). Međutim, nikada ne pozivate metodu unesi_parametre() na toj instanci.
+
+Vaša petlja for ime, ocjene in imenik.items(): iterira preko parova ključ-vrijednost u rječniku imenik. Međutim, imenik je prazan rječnik jer nikada niste dodali nikakve vrijednosti u njega.
+
+Evo kako biste mogli ispraviti kod:
+
+class Studenti:
+    def __init__(self, ime, ocjene):
+        self.ime = str(ime)
+        self.ocjene = ocjene
+
+    def unesi_parametre(self):
+        self.ime = input("Unesi ime: ")
+        self.ocjene = []
+        while True:
+            ocjena = int(input("Unesi ocjenu (0 za izlaz): "))
+            if ocjena == 0:
+                break
+            else:
+                self.ocjene.append(ocjena)
+
+imenik = {}
+
+while True:
+    student = Studenti("", [])
+    student.unesi_parametre()
+    if not student.ocjene:
+        break
+    imenik[student.ime] = student.ocjene
+
+for ime, ocjene in imenik.items():
+    print(f"{ime}: {', '.join(map(str, ocjene))}")
+
+
+
+Evo što sam promijenio:
+
+Dodao sam while True petlju za unos više studenata.
+Kreiram novu instancu Studenti u svakoj iteraciji petlje.
+Pozivam unesi_parametre() metodu na toj instanci.
+Ako korisnik ne unese ocjene (prazna lista), izlazim iz petlje.
+Inače, dodajem studenta i njegove ocjene u imenik rječnik.
+Na kraju, iteriram preko imenik rječnika i ispisujem ime i ocjene svakog studenta.
+Sada bi kod trebao ispravno raditi i omogućiti unos imena i ocjena za više studenata. Kada unesete 0 za ocjenu, program će izaći iz unosa ocjena za tog studenta i nastaviti s unosom sljedećeg studenta. Kada unesete praznu listu ocjena, program će izaći iz petlje i ispisati sve unesene studente i njihove ocjene.
+
+
+
+Try again with different context
+Add context...
+Avatar for miodrag.gvozden
+da, radi. samo mi pojasni zašto moramo svaki put novu instancu stvorit da unos bude kako treba? da li je možda jedan od razloga i to štose radi o klasi?
+
+Da, jedan od glavnih razloga zašto moramo stvoriti novu instancu klase Studenti u svakoj iteraciji petlje je upravo zato što radimo s klasama u Pythonu.
+
+Kada kreiramo instancu klase, ona predstavlja jedinstveni objekt s vlastitim stanjem (atributima) i metodama. Svaka instanca klase je neovisna o drugim instancama te klase.
+
+U vašem originalnom kodu, stvorili ste samo jednu instancu unos_studenata = studenti("Ime", []). Kada biste pozvali metodu unesi_parametre() na toj instanci, ona bi promijenila atribute ime i ocjene te instance.
+
+Međutim, problem je što biste tada imali samo jednu instancu Studenti s jednim imenom i jednom listom ocjena. Svaki novi unos bi prepisao prethodni unos u toj istoj instanci.
+
+Da bismo mogli unijeti više studenata s različitim imenima i ocjenama, moramo stvoriti novu instancu klase Studenti za svakog studenta. Na taj način, svaka instanca ima svoje jedinstvene atribute ime i ocjene, neovisne o drugim instancama.
+
+Kada stvorimo novu instancu unutar petlje while True:, ona započinje s praznim atributima ime i ocjene. Zatim pozivamo metodu unesi_parametre() na toj instanci, koja puni te atribute s unesenim vrijednostima. Nakon toga, tu instancu dodajemo u imenik rječnik.
+
+U sljedećoj iteraciji petlje, stvaramo novu instancu klase Studenti, koja je potpuno neovisna o prethodnoj instanci. Ova nova instanca ima svoje vlastite, prazne atribute ime i ocjene, koje onda punimo s novim unosom.
+
+Ovaj pristup stvaranja novih instanci u svakoj iteraciji petlje je neophodan kada radimo s klasama jer svaka instanca predstavlja jedinstveni objekt sa svojim vlastitim stanjem (atributima). Na taj način možemo pohraniti podatke za više objekata (u ovom slučaju, više studenata) bez da se podaci miješaju ili prepisuju.
+
+Dakle, da, jedan od glavnih razloga zašto moramo stvarati nove instance u svakoj iteraciji petlje je upravo zbog prirode klasa i objekata u Pythonu, gdje svaka instanca ima svoje jedinstveno stanje.
+
+
+
+Try again with different context
+Add context...
+Avatar for miodrag.gvozden
+zasto linija "imenik[student.ime] = student.ocjene" treba biti van klase Studenti? zar nebi mogla biti premještena unutar metode unesi_parametre između if i break?
+
+Imate dobro pitanje. Linija imenik[student.ime] = student.ocjene bi teoretski mogla biti premještena unutar metode unesi_parametre() klase Studenti, ali to ne bi bilo dobro rješenje iz nekoliko razloga:
+
+Razdvajanje odgovornosti: Klasa Studenti bi trebala biti odgovorna samo za upravljanje podacima o pojedinačnom studentu (ime i ocjene). Upravljanje rječnikom imenik, koji sadrži sve studente, bi trebalo biti odvojena odgovornost, izvan klase Studenti.
+
+Fleksibilnost: Ako bismo premjestili liniju imenik[student.ime] = student.ocjene unutar metode unesi_parametre(), to bi značilo da moramo stvoriti instancu imenik rječnika unutar klase Studenti. To bi smanjilo fleksibilnost jer bismo bili ograničeni na jedan imenik rječnik po instanci klase Studenti.
+
+Skalabilnost: Ako bismo željeli proširiti funkcionalnost programa, na primjer, dodati mogućnost čitanja studenata iz datoteke ili baze podataka, bilo bi teže modificirati kod ako je logika upravljanja imenik rječnikom ugnježđena unutar klase Studenti.
+
+Čistoća koda: Držanje logike upravljanja imenik rječnikom izvan klase Studenti čini kod čišćim i lakšim za održavanje. Klasa Studenti bi trebala biti fokusirana samo na upravljanje podacima o pojedinačnom studentu, a ne na upravljanje kolekcijom svih studenata.
+
+Umjesto toga, preporučljivo je držati logiku upravljanja imenik rječnikom izvan klase Studenti, kao što ste i učinili u svom kodu. Na taj način, klasa Studenti ostaje čista i fokusirana na svoju primarnu odgovornost, a logika upravljanja kolekcijom studenata je odvojena i može se lakše modificirati ili proširiti u budućnosti.
+
+Ovaj pristup razdvajanja odgovornosti i održavanja čistoće koda je u skladu s principima objektno-orijentiranog programiranja i dobrim praksama dizajna softvera.
+
+
+
+Try again with different context
+Add context...
+Avatar for miodrag.gvozden
+da ima još jedana nedostatak, evo koda sa premještenom linijom: class Studenti:
+
+    def __init__(self, ime, ocjene):
+
+        self.ime = str(ime)
+
+        self.ocjene = ocjene
+
+
+
+
+    def unesi_parametre(self):
+
+        self.ime = input("Unesi ime: ")
+
+        self.ocjene = []
+
+        while True:
+
+            ocjena = int(input("Unesi ocjenu (0 za izlaz): "))
+
+            if ocjena == 0:
+
+                imenik[student.ime] = student.ocjene
+
+                break
+
+            else:
+
+                self.ocjene.append(ocjena)
+
+
+
+
+imenik = {}
+
+
+
+
+while True:
+
+    student = Studenti("", [])
+
+    student.unesi_parametre()
+
+    if not student.ocjene:
+
+        break
+
+   
+
+
+
+
+for ime, ocjene in imenik.items():
+
+    print(f"{ime}: {', '.join(map(str, ocjene))}"), a evo ispisa na ekran: Unesi ime: a
+
+Unesi ocjenu (0 za izlaz): 1
+
+Unesi ocjenu (0 za izlaz): 0
+
+Unesi ime: s
+
+Unesi ocjenu (0 za izlaz): 2
+
+Unesi ocjenu (0 za izlaz): 0
+
+Unesi ime:
+
+Unesi ocjenu (0 za izlaz): 0
+
+a: 1
+
+s: 2
+
+:           <----ispisuje  mjesto u riječniku prazno ili je unutra pohranio vrijednost "" prazan string i 0 za izlaz?
+
+Imate pravo, postoji nedostatak u vašem kodu s premještenom linijom imenik[student.ime] = student.ocjene unutar metode unesi_parametre().
+
+Kada unesete praznu vrijednost za ime studenta (pritisnete Enter bez unosa), vaš kod dodaje prazan string "" kao ključ u imenik rječnik, zajedno s praznom listom [] kao vrijednošću.
+
+To je razlog zašto vidite red : u ispisu, što znači da postoji ključ (prazan string "") u imenik rječniku s praznom listom [] kao vrijednošću.
+
+Ovaj nedostatak se javlja jer vaša metoda unesi_parametre() ne provjerava je li unos za ime studenta prazan prije dodavanja u imenik rječnik.
+
+Da biste to ispravili, možete dodati provjeru za prazan unos imena studenta unutar metode unesi_parametre(), na primjer:
+
+def unesi_parametre(self):
+    self.ime = input("Unesi ime: ")
+    if not self.ime:  # Provjera za prazan unos
+        return  # Izlaz iz metode ako je unos prazan
+
+    self.ocjene = []
+    while True:
+        ocjena = int(input("Unesi ocjenu (0 za izlaz): "))
+        if ocjena == 0:
+            if self.ocjene:  # Provjera je li lista ocjena prazna
+                imenik[self.ime] = self.ocjene
+            break
+        else:
+            self.ocjene.append(ocjena)
+
+
+
+U ovoj izmijeni, dodali smo provjeru if not self.ime na početku metode unesi_parametre(). Ako je unos za ime studenta prazan, metoda se odmah prekida pomoću return naredbe, bez dodavanja u imenik rječnik.
+
+Također smo dodali provjeru if self.ocjene prije dodavanja u imenik rječnik, kako bismo izbjegli dodavanje prazne liste ocjena u rječnik.
+
+Sada, kada unesete praznu vrijednost za ime studenta, vaš program neće dodati prazan ključ u imenik rječnik, i izbjegnut ćete ispis : u izlazu.
+
+Nadam se da vam je ovo pojašnjenje pomoglo da razumijete nedostatak u vašem kodu i kako ga ispraviti. Uvijek je dobro razmišljati o rubnim slučajevima i provjeravati unos korisnika kako biste izbjegli neočekivano ponašanje programa.
+
+TRANSKRIPT 11.06.2024. 20:59
