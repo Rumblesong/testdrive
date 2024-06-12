@@ -2568,3 +2568,367 @@ Sada, kada unesete praznu vrijednost za ime studenta, vaš program neće dodati 
 Nadam se da vam je ovo pojašnjenje pomoglo da razumijete nedostatak u vašem kodu i kako ga ispraviti. Uvijek je dobro razmišljati o rubnim slučajevima i provjeravati unos korisnika kako biste izbjegli neočekivano ponašanje programa.
 
 TRANSKRIPT 11.06.2024. 20:59
+__________________________________________________________________
+##################################################################
+
+
+
+
+
+
+SDK stands for Software Development Kit. It is a collection of software development tools in one installable package. SDKs are designed to allow developers to create applications for a specific platform, framework, computer system, game console, operating system, or web service.
+
+The main components typically included in an SDK are:
+
+Integrated Development Environment (IDE): An IDE provides a code editor, debugger, build automation tools, and other utilities to help developers write, test, and deploy code.
+
+Compilers/Interpreters: These tools translate the source code written by developers into machine-readable code that can be executed by the target platform.
+
+Application Programming Interfaces (APIs): APIs define how different components of an application should interact with each other. SDKs provide APIs that allow developers to access and utilize the functionality of the underlying platform or framework.
+
+Code Libraries: These are pre-written code modules that provide common functionality, saving developers from having to write everything from scratch.
+
+Documentation: SDKs include comprehensive documentation, code samples, tutorials, and guides to help developers understand and use the provided tools and APIs effectively.
+
+Debugging Tools: Tools like debuggers, profilers, and log analyzers help developers identify and fix issues in their code.
+
+Emulators/Simulators: For platforms like mobile devices or game consoles, SDKs may include emulators or simulators that allow developers to test their applications without needing the actual hardware.
+
+Some examples of popular SDKs include:
+
+Java Development Kit (JDK): For developing Java applications.
+Android SDK: For building Android mobile applications.
+iOS SDK: For developing apps for Apple's iOS devices.
+.NET SDK: For building applications using Microsoft's .NET framework.
+Unity SDK: For creating games and interactive 3D content using the Unity game engine.
+AWS SDK: For developing applications that integrate with Amazon Web Services.
+SDKs simplify the development process by providing a comprehensive set of tools and resources tailored to a specific platform or technology. They help developers write code more efficiently, ensure compatibility with the target platform, and take advantage of the latest features and capabilities.
+
+
+
+Try again with different context
+Add context...
+Avatar for miodrag.gvozden
+što je to framework? možeš li mi to pojasnit, vizualizirat?
+
+Framework je softverska arhitektura ili platforma koja pruža temeljnu strukturu za razvoj aplikacija. To je skup alata, biblioteka, smjernica i najboljih praksi koje olakšavaju razvoj, integraciju i implementaciju aplikacija.
+
+Možemo vizualizirati framework kao skelet ili kostur kuće:
+
+Temelji: Framework pruža temeljnu infrastrukturu i osnovne komponente potrebne za izgradnju aplikacije. To uključuje jezgru, biblioteke, alate za razvoj i sl.
+
+Nosivi zidovi: Framework definira arhitekturne obrasce i smjernice koje određuju način na koji se aplikacija treba graditi. To osigurava konzistentnost i olakšava održavanje koda.
+
+Prozori i vrata: Framework pruža API-je (Application Programming Interfaces) koji omogućuju interakciju s različitim dijelovima aplikacije i integraciju s vanjskim sustavima ili uslugama.
+
+Krov: Framework često pruža i dodatne značajke poput sigurnosti, upravljanja sesijama, logiranja, testiranja i sl., koje štite i nadograđuju aplikaciju.
+
+Kada razvijate aplikaciju koristeći framework, vi zapravo "punite" ovaj skelet vlastitim funkcionalnostima i kodom. Framework vam pruža strukturu i alate, a vi dodajete specifičnu logiku i funkcionalnosti potrebne za vašu aplikaciju.
+
+Neki primjeri popularnih frameworka:
+
+Web frameworki: Django (Python), Ruby on Rails (Ruby), Spring (Java), ASP.NET (C#) - pomažu u razvoju web aplikacija i pružaju funkcionalnosti poput rutiranja, obrade zahtjeva, pristupa bazama podataka itd.
+
+Mobilni frameworki: Flutter (Dart), React Native (JavaScript), Xamarin (C#) - olakšavaju razvoj mobilnih aplikacija za različite platforme (iOS, Android).
+
+Game frameworki: Unity (C#), Unreal Engine (C++) - pružaju alate i komponente za razvoj 3D i 2D igara.
+
+Korištenjem frameworka, developeri ne moraju započinjati razvoj aplikacije iz temelja, već mogu iskoristiti već postojeće komponente i smjernice koje framework pruža. To ubrzava razvoj, osigurava konzistentnost i olakšava održavanje aplikacije.
+
+
+
+Try again with different context
+Add context...
+Avatar for miodrag.gvozden
+onda je framework isto kao i sdk?
+
+Ne, framework i SDK (Software Development Kit) nisu isto, iako su povezani i često se koriste zajedno.
+
+SDK je skup alata, biblioteka, dokumentacije i drugih resursa koji omogućuju razvoj aplikacija za određenu platformu, operativni sustav ili tehnologiju. SDK pruža osnovne građevne blokove i API-je potrebne za interakciju s tom platformom.
+
+S druge strane, framework je arhitekturni obrazac ili softverska platforma koja pruža temeljnu strukturu i smjernice za razvoj aplikacija. Framework definira način na koji se aplikacija treba graditi, uključujući arhitekturu, obrasce dizajna i najbolje prakse.
+
+Glavne razlike između SDK-a i frameworka su:
+
+Svrha: SDK je primarno namijenjen za razvoj aplikacija za određenu platformu, dok je framework namijenjen za pružanje strukture i smjernica za razvoj aplikacija općenito.
+
+Opseg: SDK je specifičan za određenu platformu ili tehnologiju, dok framework može biti korišten za razvoj različitih vrsta aplikacija na različitim platformama.
+
+Fleksibilnost: SDK obično pruža niži nivo apstrakcije i više kontrole nad detaljima implementacije, dok framework nudi višu razinu apstrakcije i ugrađene funkcionalnosti, ali i manje fleksibilnosti.
+
+Integracija: Frameworki često koriste SDK-ove za interakciju s određenim platformama ili tehnologijama, integrirajući njihove API-je i alate u svoju strukturu.
+
+Dakle, SDK je skup alata za razvoj aplikacija za specifičnu platformu, dok je framework arhitekturni obrazac ili platforma koja pruža strukturu i smjernice za razvoj aplikacija općenito. Frameworki često koriste SDK-ove za integraciju s različitim platformama i tehnologijama, ali sami po sebi nisu SDK-ovi.
+
+Primjerice, Android SDK je skup alata za razvoj Android aplikacija, dok je framework poput Flutter ili React Native koristi Android SDK (i iOS SDK) za izgradnju mobilnih aplikacija, ali pruža vlastitu arhitekturu i smjernice za razvoj aplikacija.
+
+
+
+Try again with different context
+Add context...
+Avatar for miodrag.gvozden
+u neku ruku sdk je onda podskup frameworka
+
+Ne bih rekao da je SDK podskup frameworka, već su to dvije odvojene, ali povezane komponente u razvoju softvera.
+
+SDK (Software Development Kit) je skup alata, biblioteka, dokumentacije i drugih resursa specifičnih za određenu platformu, tehnologiju ili uslugu. On pruža osnovne građevne blokove i API-je za interakciju s tom platformom.
+
+S druge strane, framework je arhitekturni obrazac ili softverska platforma koja pruža strukturu, smjernice i najbolje prakse za razvoj aplikacija općenito, neovisno o specifičnoj platformi.
+
+Odnos između SDK-a i frameworka je više kao odnos dijela i cjeline, gdje framework često koristi jedan ili više SDK-ova kao svoje komponente, ali i pruža dodatne slojeve apstrakcije, obrasce dizajna i funkcionalnosti iznad samih SDK-ova.
+
+Dakle, SDK je samostalna cjelina koja se može koristiti neovisno, dok framework obično integrira jedan ili više SDK-ova u svoju strukturu, ali dodaje i vlastite slojeve i funkcionalnosti.
+
+Primjerice, React Native framework koristi Android SDK i iOS SDK za izgradnju mobilnih aplikacija, ali pruža i vlastitu arhitekturu, obrasce dizajna i dodatne funkcionalnosti iznad samih SDK-ova.
+
+Stoga, ne bismo mogli reći da je SDK podskup frameworka, već su to odvojeni, ali često komplementarni koncepti u razvoju softvera. SDK pruža alate za interakciju s određenom platformom, dok framework pruža strukturu i smjernice za razvoj aplikacija koristeći te alate i SDK-ove.
+
+
+
+Try again with different context
+Add context...
+Avatar for miodrag.gvozden
+koji su sdk i framwork za c++ development
+
+Za razvoj aplikacija u C++ postoji nekoliko popularnih SDK-ova i frameworka:
+
+SDK-ovi za C++:
+
+Microsoft Visual C++ SDK: Dio Visual Studio integriranog razvojnog okruženja (IDE) od Microsofta. Pruža alate, biblioteke i dokumentaciju za razvoj C++ aplikacija na Windows platformi.
+
+GNU Compiler Collection (GCC): Skup kompajlera za različite programske jezike, uključujući C++. Često se koristi u kombinaciji s drugim alatima i bibliotekama za razvoj C++ aplikacija na različitim platformama (Linux, macOS, Windows).
+
+Clang: Kompajler za C, C++, Objective-C i Objective-C++ razvijen od strane Apple-a. Često se koristi u kombinaciji s LLVM infrastrukturom za razvoj C++ aplikacija.
+
+Intel C++ Compiler: Optimizirani kompajler za C++ od Intela, dizajniran za performanse i kompatibilnost s različitim platformama.
+
+Frameworki za C++:
+
+Qt: Cross-platform aplikacijski framework za razvoj grafičkih korisničkih sučelja (GUI) i aplikacija. Pruža biblioteke za C++ programiranje, alate za razvoj i podršku za različite platforme.
+
+wxWidgets: Još jedan cross-platform GUI framework za C++ koji omogućuje razvoj aplikacija s grafičkim sučeljem na različitim operativnim sustavima.
+
+JUCE: Framework za razvoj cross-platform audio aplikacija, pluginova i alata u C++.
+
+Boost: Zbirka biblioteka za C++ koje proširuju funkcionalnosti standardne C++ biblioteke. Pruža alate za različite zadatke poput multi-threadinga, regularnih izraza, file sistema i sl.
+
+Unreal Engine: Moćan game engine i framework za razvoj 3D i 2D igara, simulacija i vizualizacija u C++.
+
+OpenCV: Popularna open-source biblioteka za računalni vid i obradu slika, napisana u C++ i optimizirana za performanse.
+
+Ovi SDK-ovi i frameworki pružaju alate, biblioteke, dokumentaciju i smjernice za razvoj C++ aplikacija na različitim platformama i za različite domene, poput grafičkih sučelja, igara, obrade podataka, računalnog vida i sl. Izbor ovisi o vašim specifičnim potrebama i zahtjevima projekta.
+
+
+
+Try again with different context
+Add context...
+Avatar for miodrag.gvozden
+zanimljivo. koji su sdk i framework za pytohn?
+
+Za Python postoji nekoliko popularnih SDK-ova i frameworka:
+
+SDK-ovi za Python:
+
+Python Standard Library: Standardna biblioteka koja dolazi uz Python i sadrži module za različite zadatke poput upravljanja datotekama, mrežnih operacija, obrade podataka i sl.
+
+PyPI (Python Package Index): Repozitorij softverskih paketa za Python, koji sadrži tisuće biblioteka i modula koje developeri mogu instalirati i koristiti u svojim projektima.
+
+Specific Platform SDKs: Različite platforme i usluge često nude svoje SDK-ove za Python, poput AWS SDK za Python (za Amazon Web Services), Google Cloud SDK za Python, Twilio Python SDK i sl.
+
+Frameworki za Python:
+
+Django: Popularan web framework za razvoj web aplikacija u Pythonu. Pruža funkcionalnosti poput rutiranja, obrade zahtjeva, ORM-a (Object-Relational Mapping), administratorskog sučelja i sl.
+
+Flask: Mikroframework za razvoj web aplikacija u Pythonu. Jednostavan je i fleksibilan, ali pruža osnovne funkcionalnosti poput rutiranja, obrade zahtjeva i predložaka.
+
+Pyramid: Još jedan web framework za Python, sličan Djangu, ali s naglaskom na modularnost i fleksibilnost.
+
+FastAPI: Moderan, brz web framework za izgradnju API-ja s automatskom dokumentacijom, podrškom za asinkroni rad i visoku performansu.
+
+Tornado: Asinkroni web framework za Python, pogodan za razvoj skalabilnih web aplikacija i servisa.
+
+Scrapy: Framework za web scraping, dizajniran za ekstrahiranje podataka s web stranica.
+
+Django REST Framework: Proširenje Django frameworka za izgradnju web API-ja.
+
+Pygame: Skup Python modula dizajniranih za razvoj 2D igara.
+
+TensorFlow i PyTorch: Popularne biblioteke i frameworki za strojno učenje i duboko učenje u Pythonu.
+
+Ovi SDK-ovi i frameworki pružaju alate, biblioteke i smjernice za različite vrste Python aplikacija, poput web aplikacija, API-ja, igara, web scrapinga, obrade podataka, strojnog učenja i sl. Izbor ovisi o vašim specifičnim potrebama i zahtjevima projekta.
+
+
+
+Try again with different context
+Add context...
+Avatar for miodrag.gvozden
+pythton nema framework kao unreal, nešto za razvoj 3d igara?
+
+Python nema izravni ekvivalent frameworku poput Unreal Enginea za razvoj 3D igara, ali postoje neke biblioteke i alati koji se mogu koristiti za tu svrhu:
+
+Pygame: Pygame je skup Python modula dizajniran za razvoj 2D igara. Iako je primarno namijenjen za 2D igre, moguće je koristiti ga i za jednostavnije 3D igre i vizualizacije.
+
+PyOpenGL: PyOpenGL je Python binding (veza) za OpenGL, cross-platform API za renderiranje 2D i 3D računalne grafike. Omogućuje korištenje OpenGL funkcionalnosti iz Python koda.
+
+Panda3D: Panda3D je game engine i framework za 3D renderiranje napisan u C++, ali s Python bindinzima. Omogućuje razvoj 3D igara, vizualizacija i simulacija koristeći Python.
+
+Blender: Blender je besplatni alat za 3D modeliranje, renderiranje, animaciju i kreiranje igara. Iako nije primarno Python framework, Blender ima ugrađeni Python interpreter koji omogućuje pisanje skripti i alata u Pythonu za proširenje Blendera.
+
+Unity s Python integracijama: Unity je moćan game engine primarno namijenjen za C#, ali postoje načini za integraciju Pythona u Unity projekte, poput paketa poput Unity Python Pro ili PyUnity.
+
+Važno je napomenuti da, iako je moguće koristiti ove alate za razvoj 3D igara u Pythonu, Python nije primarno namijenjen za tu svrhu i često se smatra manje pogodnim za razvoj zahtjevnih 3D igara u usporedbi s jezicima poput C++ ili C#.
+
+Međutim, Python se može koristiti za prototipiranje, skriptiranje, alate za razvoj igara ili manje zahtjevne 3D aplikacije i vizualizacije. Ako vam je potreban profesionalni game engine za razvoj naprednih 3D igara, preporučljivije je koristiti specijalizirane alate poput Unreal Enginea, Unity-a ili drugih game enginea napisanih u jezicima optimiziranima za performanse.
+
+
+
+Try again with different context
+Add context...
+Avatar for miodrag.gvozden
+štop bi bilo "Python and Linux/Unix shell know-how"
+
+"Python and Linux/Unix shell know-how" bi se odnosilo na poznavanje i vještine korištenja Pythona i Linux/Unix ljuske (shell-a).
+
+Python dio bi obuhvaćao:
+
+Poznavanje sintakse i osnovnih koncepata Pythona
+Pisanje Python skripti i programa
+Korištenje Python modula i biblioteka
+Razumijevanje objektno-orijentiranog programiranja u Pythonu
+Rad s datotekama, mrežnim operacijama, obradom podataka u Pythonu
+Poznavanje Python web frameworka poput Djanga, Flaska itd.
+Korištenje Pythona za automatizaciju zadataka, skriptiranje, itd.
+Linux/Unix shell dio bi obuhvaćao:
+
+Poznavanje Linux/Unix operativnih sustava i njihovih ljuski (bash, sh, zsh, itd.)
+Pisanje shell skripti za automatizaciju zadataka
+Upravljanje datotekama i direktorijima putem ljuske
+Korištenje ljuske za upravljanje procesima i servisima
+Poznavanje osnovnih Linux/Unix naredbi (ls, cd, cp, mv, rm, itd.)
+Rad s permisijama datoteka i direktorija
+Poznavanje koncepta ulančavanja naredbi i redirekcije ulaza/izlaza
+Korištenje alata poput grep, sed, awk za obradu teksta
+Kombinacija Python i Linux/Unix shell vještina bi omogućila razvoj skripti, automatizaciju zadataka, upravljanje sustavom, obradu podataka i teksta, te integraciju različitih alata i komponenti na Linux/Unix sustavima.
+
+Ovo znanje je često traženo u DevOps ulogama, sustavskoj administraciji, razvoju softvera na Linux/Unix platformama, obradi i analizi podataka, te općenito u područjima gdje je potrebna automatizacija zadataka i upravljanje Linux/Unix sustavima.
+
+
+
+Try again with different context
+Add context...
+Avatar for miodrag.gvozden
+Djanga, Flaska koja je razlika?
+
+Django i Flask su dva popularna Python web frameworka, ali postoje značajne razlike između njih:
+
+Django:
+
+Monolitni full-stack framework
+Sadrži ugrađene funkcionalnosti za većinu aspekata web razvoja (ORM, admin sučelje, autentifikacija, forme, testiranje, itd.)
+Slijedi filozofiju "baterije uključene" (batteries included)
+Stroga struktura projekta i konvencije
+Pogodan za razvoj složenih, enterprise-level web aplikacija
+Veća krivulja učenja zbog opsežnosti frameworka
+Aktivna i velika zajednica developera
+Flask:
+
+Mikroframework, minimalistički pristup
+Sadrži samo osnovne funkcionalnosti za rutiranje i obradu zahtjeva
+Filozofija "ne uključuje baterije" (batteries not included)
+Fleksibilna struktura projekta, developeri sami biraju komponente
+Pogodan za razvoj manjih web aplikacija i API-ja
+Manja krivulja učenja zbog jednostavnosti
+Manja, ali aktivna zajednica developera
+Glavne razlike:
+
+Opseg: Django je sveobuhvatan framework s mnogo ugrađenih funkcionalnosti, dok je Flask minimalistički mikroframework.
+
+Fleksibilnost: Flask je fleksibilniji jer developeri sami biraju i integriraju dodatne komponente, dok Django ima stroži skup konvencija.
+
+Kompleksnost: Django je kompleksniji i ima više koncepata za naučiti, dok je Flask jednostavniji za početak.
+
+Performanse: Flask se često smatra brži od Djanga za manje aplikacije zbog manjeg overhead-a.
+
+Upotreba: Django se preporučuje za složene, enterprise-level web aplikacije, dok je Flask pogodan za manje projekte, API-je i prototipiranje.
+
+Izbor između Djanga i Flaska često ovisi o veličini i složenosti projekta, potrebnim funkcionalnostima, te preferencijama i iskustvu developera. Django nudi više "out-of-the-box", dok Flask pruža više fleksibilnosti, ali zahtijeva integraciju dodatnih komponenti.
+
+
+
+Try again with different context
+Add context...
+Avatar for miodrag.gvozden
+možeš li npr. istu aplikaciju razvit u oba?
+
+Da, istu web aplikaciju je moguće razviti korištenjem oba frameworka, Djanga i Flaska, iako će pristup i implementacija biti različiti.
+
+Django je robusniji i pruža više ugrađenih funkcionalnosti "out-of-the-box", dok je Flask minimalistički i zahtijeva integraciju dodatnih biblioteka i komponenti za složenije funkcionalnosti.
+
+Primjerice, za razvoj jednostavne bloggers aplikacije s mogućnošću objave, uređivanja i brisanja članaka, oba frameworka bi mogla biti korištena, ali na sljedeći način:
+
+U Djangu:
+
+Koristili biste ugrađeni ORM (Object-Relational Mapping) za definiranje modela podataka za članke
+Adminsko sučelje bi vam omogućilo upravljanje člancima bez pisanja dodatnog koda
+Autentifikacija i autorizacija bi se implementirali korištenjem ugrađenog sustava za autentifikaciju
+Forme za kreiranje/uređivanje članaka bi se generirale korištenjem ugrađenog sustava formi
+Pogledi (view funkcije) bi se pisali za renderiranje predložaka s člancima
+U Flasku:
+
+Trebali biste integrirati ORM biblioteku poput SQLAlchemy za rad s bazom podataka
+Sami biste pisali funkcionalnosti za CRUD (create, read, update, delete) operacije nad člancima
+Autentifikacija bi se implementirala korištenjem dodatne biblioteke poput Flask-Login
+Forme bi se kreirale korištenjem dodatne biblioteke poput WTForms
+Pogledi bi se pisali za renderiranje predložaka s člancima, slično kao u Djangu
+Iako je moguće implementirati istu funkcionalnost u oba frameworka, u Djangu bi se više oslanjali na ugrađene komponente, dok biste u Flasku morali integrirati više vanjskih biblioteka za postizanje iste funkcionalnosti.
+
+Dakle, iako je moguće razviti istu aplikaciju u oba frameworka, pristup i količina koda koju biste morali napisati bi se razlikovali, ovisno o tome koliko se oslanjate na ugrađene funkcionalnosti frameworka ili integrirate vanjske komponente.
+
+
+
+Try again with different context
+Add context...
+Avatar for miodrag.gvozden
+shvaćam, django ima više već posloženih stvari dok to u flasku moraš više odradit ručno, pisat kod, zar ne?
+
+Da, potpuno ste u pravu. Glavna razlika između Djanga i Flaska je u tome što Django dolazi s puno više ugrađenih funkcionalnosti "out-of-the-box", dok Flask zahtijeva više ručnog rada i integracije vanjskih biblioteka.
+
+Django:
+
+Dolazi s ugrađenim ORM-om, sustavom za autentifikaciju, admin sučeljem, obradu formi, testiranje itd.
+Mnoge stvari su već implementirane i konfigurirane za vas prema konvencijama Djanga.
+Manje koda morate pisati sami za osnovne funkcionalnosti.
+Flask:
+
+Minimalistički pristup, dolazi samo s osnovnim funkcionalnostima za rutiranje i obradu zahtjeva.
+Za većinu ostalih funkcionalnosti morate sami integrirati vanjske Python biblioteke i pisati više koda.
+ORM, autentifikacija, obrada formi, testiranje itd. - sve to morate sami implementirati ili integrirati biblioteke.
+Više fleksibilnosti, ali i više ručnog rada.
+Dakle, u Djangu ćete morati pisati manje koda za osnovne funkcionalnosti web aplikacije, jer su mnoge stvari već implementirane i konfigurirane za vas. Dok u Flasku ćete morati pisati više koda sami ili integrirati vanjske biblioteke za iste funkcionalnosti.
+
+To čini Django produktivnijim za brzi razvoj složenih web aplikacija, jer vam pruža više "out-of-the-box". Dok Flask nudi više fleksibilnosti i kontrole, ali po cijenu više ručnog rada i integracije komponenti.
+
+Stoga, ako želite brži razvoj i imate složenije zahtjeve, Django bi mogao biti bolji izbor. Ako preferirate minimalističniji pristup i fleksibilnost, Flask bi mogao biti bolji izbor, ali ćete morati uložiti više truda u integraciju komponenti.
+
+
+
+Try again with different context
+Add context...
+Avatar for miodrag.gvozden
+molim pojasni mi ovo: "Experience in daily use of ESLint and Prettier"
+
+"Experience in daily use of ESLint and Prettier" se odnosi na iskustvo u svakodnevnoj upotrebi ESLint i Prettier alata u razvoju softvera, najčešće u kontekstu web razvoja koristeći JavaScript.
+
+ESLint je alat za statičku analizu koda koji pomaže u pronalaženju i ispravljanju problema u JavaScript kodu, kao što su sintaksne greške, loše prakse kodiranja i odstupanja od definiranih stilova kodiranja. Omogućuje definiranje pravila koja kod mora slijediti i automatsko ispravljanje nekih problema.
+
+Prettier je alat za formatiranje koda koji automatski formatira JavaScript kod prema unaprijed definiranom stilu kodiranja. Osigurava konzistentan stil kodiranja u cijelom projektu, bez obzira na to tko je pisao kod.
+
+Kada se kaže "Experience in daily use of ESLint and Prettier", to znači da se od kandidata očekuje da ima svakodnevno iskustvo u korištenju ovih alata tijekom razvoja JavaScript aplikacija ili biblioteka. To podrazumijeva:
+
+Konfiguriranje ESLint i Prettier alata u razvojnom okruženju.
+Definiranje pravila i stilova kodiranja koje ESLint i Prettier trebaju primijeniti.
+Integriranje ESLint i Prettier alata u razvojni proces, bilo kroz IDE, build sustav ili git hook-ove.
+Svakodnevno korištenje ovih alata za analizu, ispravljanje i formatiranje koda tijekom pisanja i prije commit-anja promjena.
+Rješavanje problema i upozorenja koja ovi alati prijavljuju.
+Prilagođavanje konfiguracija ESLint i Prettier alata prema potrebama projekta ili tima.
+Svakodnevna upotreba ovih alata pomaže u održavanju kvalitete koda, konzistentnosti stila kodiranja i sprječavanju uobičajenih grešaka u kodu. Iskustvo u njihovom korištenju pokazuje da je developer svjestan važnosti kvalitete koda i da je naviknut na rad s alatima koji olakšavaju pisanje čistog, konzistentnog i održivog koda.
