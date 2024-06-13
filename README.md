@@ -2932,3 +2932,27 @@ Svakodnevno korištenje ovih alata za analizu, ispravljanje i formatiranje koda 
 Rješavanje problema i upozorenja koja ovi alati prijavljuju.
 Prilagođavanje konfiguracija ESLint i Prettier alata prema potrebama projekta ili tima.
 Svakodnevna upotreba ovih alata pomaže u održavanju kvalitete koda, konzistentnosti stila kodiranja i sprječavanju uobičajenih grešaka u kodu. Iskustvo u njihovom korištenju pokazuje da je developer svjestan važnosti kvalitete koda i da je naviknut na rad s alatima koji olakšavaju pisanje čistog, konzistentnog i održivog koda.
+
+ostoji nekoliko mogućih razloga zašto Visual Studio Code ne radi ispravno ili se ruši na Ubuntu 22.04 sustavu:
+
+Konflikt biblioteka Visual Studio Code ovisi o određenim sistemskim bibliotekama. Ako te biblioteke nedostaju ili su zastarjele, može doći do problema. Pokušajte ažurirati svoje Ubuntu pakete naredbom:
+sudo apt update
+sudo apt upgrade
+
+
+
+Nedostatak sistemskih zavisnosti VSCode zahtijeva neke sistemske pakete poput libxss1, libasound2, libgbm1. Instalirajte ih naredbom:
+sudo apt install libxss1 libasound2 libgbm1
+
+
+
+Problemi s grafičkim driverima Ako imate noviju grafičku karticu, problemi s driverima mogu uzrokovati rušenje VSCode-a. Provjerite jeste li instalirali odgovarajuće drivere za svoju grafičku karticu.
+
+Problemi s pristupom datotekama VSCode ponekad ima problema s dozvolama pristupa određenim datotekama ili mapama. Pokušajte pokrenuti VSCode s root ovlastima:
+
+sudo code --user-data-dir=/tmp
+
+
+
+Oštećena instalacija Ako ništa drugo ne uspije, možda ćete morati deinstalirati i ponovno instalirati VSCode koristeći službene upute za Ubuntu.
+Ako i dalje imate problema nakon pokušaja rješavanja, preporučujem vam da pogledate VSCode zapisnike o pogreškama i potražite pomoć na njihovim službenim forumima za podršku.
