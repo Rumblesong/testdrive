@@ -1,0 +1,12 @@
+{
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ],
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "resolutions.d.ts" // Include the resolutions.d.ts file
+  ]
+}
