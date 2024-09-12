@@ -13,8 +13,8 @@ const getDesignTokens = (mode: 'light' | 'dark'): ThemeOptions => ({
             main: '#dc004e',
           },
           background: {
-            default: '#f5f5f5',
-            paper: '#ffffff',
+            default: '#f2f2f2',
+            /* paper: '#f2f2f2', */
           },
         }
       : {
@@ -26,7 +26,7 @@ const getDesignTokens = (mode: 'light' | 'dark'): ThemeOptions => ({
             main: '#f48fb1',
           },
           background: {
-            default: '#424242',
+            default: '#4d4d4d',
             paper: '#303030',
           },
         }),
@@ -135,7 +135,93 @@ const getDesignTokens = (mode: 'light' | 'dark'): ThemeOptions => ({
         }),
       },
     },
-  
+    MuiAppBar: {
+      styleOverrides: {
+        root: {
+          backgroundColor: mode === 'light' ? '#1976d2' : '#333333',//boja appbar-a
+          color: mode === 'light' ? '#ffffff' : '#000000',//boja teksta u appbar-a
+          display: 'flex',
+          justifyContent: 'space-between',
+        }
+      }
+    },
+    MuiTypography: {
+      styleOverrides: {
+        root: {
+          color: mode === 'light' ? '#ffffff' : '#ffffff',
+        },
+      },
+    },
+
+      MuiSelect: {
+        styleOverrides: {
+          select: {
+            backgroundColor: 'inherit', // Custom background color for the select
+            color: 'inherit', // This will inherit the text color from the parent theme (light/dark)
+            '&:focus': {
+              backgroundColor: 'inherit', // Keep the same background when focused
+            },
+          },
+          icon: {
+            color: 'whitesmoke', // This will inherit the color from the parent theme (light/dark)
+          },
+        },
+      },
+      MuiMenuItem: {
+        styleOverrides: {
+          root: {
+            color: 'inherit', // This will inherit the text color from the parent theme (light/dark)
+          },
+        },
+      },
+    
+         
+    /* MuiButton: {
+      styleOverrides: {
+        root: {
+          borderRadius: '8px',
+          textTransform: 'none',
+          fontWeight: 600,
+          padding: '8px 16px',
+          boxShadow: 'none',
+          '&:hover': {
+            boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)',
+          },
+        },
+        contained: {
+          backgroundColor: mode === 'light' ? '#1976d2' : '#90caf9',
+          color: mode === 'light' ? '#ffffff' : '#000000',
+          '&:hover': {
+            backgroundColor: mode === 'light' ? '#1565c0' : '#64b5f6',
+          },
+        },
+        outlined: {
+          borderColor: mode === 'light' ? '#1976d2' : '#90caf9',
+          color: mode === 'light' ? '#1976d2' : '#90caf9',
+          '&:hover': {
+            backgroundColor: mode === 'light' ? 'rgba(25, 118, 210, 0.04)' : 'rgba(144, 202, 249, 0.04)',
+          },
+        },
+        text: {
+          color: mode === 'light' ? '#1976d2' : '#90caf9',
+          '&:hover': {
+            backgroundColor: mode === 'light' ? 'rgba(25, 118, 210, 0.04)' : 'rgba(144, 202, 249, 0.04)',
+          },
+        },
+      },
+      variants: [
+        {
+          props: { variant: 'custom' },
+          style: {
+            backgroundColor: mode === 'light' ? '#4caf50' : '#81c784',
+            color: '#ffffff',
+            '&:hover': {
+              backgroundColor: mode === 'light' ? '#45a049' : '#66bb6a',
+            },
+          },
+        },
+      ],
+    }, */
   },
 });
 
