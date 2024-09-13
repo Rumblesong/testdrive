@@ -1,5 +1,5 @@
-import { AppBar, Toolbar } from "@mui/material";
-import SwitchTheme from "../SwitchTheme";
+import { AppBar, Box, Toolbar } from "@mui/material";
+//import SwitchTheme from "../SwitchTheme";
 import { Theme } from "@mui/material";
 //import myButton from "./headersItems/myButton";
 import MyTypography from "./headersItems/myTypography";
@@ -14,29 +14,49 @@ interface HeaderProps {
 export default function Header({ theme, setTheme }: HeaderProps) {
   return (
     <AppBar position="static">
-      <Toolbar>
-        {/* {myButton("SD01")}
-        {myButton("MAKER")} */}
-        <MyButton
-          name="Enabled Button"
-          backgroundColor="#ff0000"
-          textColor="#ffffff"
-        />
-        <MyButton
-          name="Disabled Button"
-          backgroundColor="#ff0000"
-          textColor="#ffffff"
-          isDisabled={true}
-          disabledBackgroundColor="#ff9999"
-          disabledTextColor="#cccccc"
-        />
-        {MyTypography("TBL0101", "body1", "100%")}
-        {/* // text, variant, width */}
-        {MySelect()}
-        {/* {myButton("Nema prijavljenog operatera")}
-        {myButton("Prijava")} */}
-        {/* <MyTypography text="Hello, my size is in em" varijanta="h6" /> */}
-        <SwitchTheme theme={theme} setTheme={setTheme} />
+      <Toolbar
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          flexDirection: "row",
+        }}
+      >
+        <Box>
+          <MyButton name="Nazad" isDisabled={true} />
+          <MyButton
+            name="SD01"
+            //backgroundColor="#1873cd"
+            textColor="#ffffff"
+            disableElevation
+            isDisabled={true}
+          />
+          <MyButton
+            name="MAKER"
+            //backgroundColor="#1873cd"
+            textColor="#ffffff"
+            disableElevation
+            isDisabled={true}
+          />
+        </Box>
+        <Box>{MyTypography("TBL0101", "body1", "100%")}</Box>
+        <Box>{MySelect()}</Box>
+        <Box>{MyTypography("Barcode test", "subtitle2", "100%")}</Box>
+        <Box>
+          <MyButton
+            name="Nema prijavljenog operatera"
+            //backgroundColor="#1873cd"
+            textColor="#ffffff"
+            disableElevation
+            isDisabled={true}
+          />
+          <MyButton
+            name="Prijava"
+            //backgroundColor="#5fa6ec"
+            textColor="#ffffff"
+            disableElevation
+          />
+          {/*  <SwitchTheme theme={theme} setTheme={setTheme} /> */}
+        </Box>
       </Toolbar>
     </AppBar>
   );

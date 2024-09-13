@@ -5,6 +5,9 @@ import Container from "@mui/material/Container";
 import { Theme } from "@mui/material";
 import { getTheme } from "../theme";
 import Header from "./header/Header";
+import MainMenu from "./body/MainMenu";
+//import { useNavigate } from "react-router-dom";
+//import DataGridDemo from "./body/table";
 //import DataGridDemo from "./body/table";
 
 const App = () => {
@@ -15,8 +18,6 @@ const App = () => {
       <CssBaseline />
       <Container
         sx={{
-          width: "100%",
-          maxWidth: "100%",
           [theme.breakpoints.up("600")]: {
             maxWidth: "100%",
           },
@@ -89,11 +90,13 @@ const App = () => {
         }}
       >
         <Header theme={theme} setTheme={setTheme} />
-        {/*} {DataGridDemo()} */}
+        {/*  {DataGridDemo()}; */}
+        <MainMenu />
       </Container>
     </ThemeProvider>
   );
 };
+
 export default App;
 
 {

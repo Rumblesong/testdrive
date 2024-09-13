@@ -12,12 +12,24 @@ export default function MySelect() {
 
   const handleChange = (event: SelectChangeEvent) => {
     setLang(event.target.value);
+    console.log(event.target.value);
   };
 
   return (
-    <FormControl sx={{ m: 1, minWidth: 60 }} size="small">
+    <FormControl
+      sx={{
+        m: 1,
+        minWidth: "clamp(4vw, 4vw, 4vw)", // Responsive width for FormControl
+        "& .MuiInputBase-root": {
+          //vw enitre viewport width
+          height: "clamp(3vh, 3vh, 3vh)", // Responsive height
+        },
+      }}
+      size="small"
+    >
       <InputLabel id="demo-select-small-label"></InputLabel>
       <Select
+        sx={{ width: "100%" }} //size realtive to parent component
         labelId="demo-select-small-label"
         id="demo-select-small"
         value={lang}

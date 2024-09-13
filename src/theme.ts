@@ -20,7 +20,7 @@ const getDesignTokens = (mode: 'light' | 'dark'): ThemeOptions => ({
       : {
           // Dark mode
           primary: {
-            main: '#90caf9',
+            main: '#cccccc',
           },
           secondary: {
             main: '#f48fb1',
@@ -58,6 +58,21 @@ const getDesignTokens = (mode: 'light' | 'dark'): ThemeOptions => ({
     '2560': 2560,
   }},
   components: {
+    MuiToolbar: {
+      styleOverrides: {
+        root: {
+          minHeight: 'clamp(8vh, 8vh, 80px) !important',
+          padding: '0 clamp(16px, 2vw, 32px) !important',
+        },
+      },
+    },
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          fontSize: 'clamp(0.875rem, 1.5vw, 1.25rem)',
+        },
+      },
+    },
     MuiContainer: {
       styleOverrides: {
         root: ({ theme }) => ({
@@ -142,6 +157,7 @@ const getDesignTokens = (mode: 'light' | 'dark'): ThemeOptions => ({
           color: mode === 'light' ? '#ffffff' : '#000000',//boja teksta u appbar-a
           display: 'flex',
           justifyContent: 'space-between',
+          height: 'clamp(8vh, 8vh, 80px)',
         }
       }
     },
@@ -152,7 +168,6 @@ const getDesignTokens = (mode: 'light' | 'dark'): ThemeOptions => ({
         },
       },
     },
-
       MuiSelect: {
         styleOverrides: {
           select: {
@@ -160,6 +175,7 @@ const getDesignTokens = (mode: 'light' | 'dark'): ThemeOptions => ({
             color: 'inherit', // This will inherit the text color from the parent theme (light/dark)
             '&:focus': {
               backgroundColor: 'inherit', // Keep the same background when focused
+            //width: '1.5rem',
             },
           },
           icon: {

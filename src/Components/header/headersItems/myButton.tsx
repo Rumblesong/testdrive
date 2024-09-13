@@ -1,13 +1,4 @@
-/* import { Button } from "@mui/material";
-
-export default function myButton(name: string) {
-  return (
-    <Button variant="contained" sx={{ marginRight: 2 }} disabled>
-      {name}
-    </Button>
-  );
-} */
-import { Button, ButtonProps } from "@mui/material";
+import { Button, ButtonProps, useTheme } from "@mui/material";
 
 interface MyButtonProps extends ButtonProps {
   name: string;
@@ -21,29 +12,42 @@ interface MyButtonProps extends ButtonProps {
 
 export default function MyButton({
   name,
-  backgroundColor = "primary.main",
-  textColor = "white",
+  backgroundColor,
+  textColor,
   borderRadius = 2,
   isDisabled = false,
-  disabledBackgroundColor,
-  disabledTextColor,
   ...props
 }: MyButtonProps) {
+  const theme = useTheme();
+  const isDarkMode = theme.palette.mode === "dark";
+
   return (
     <Button
       variant="contained"
       sx={{
         marginRight: 2,
-        backgroundColor: backgroundColor,
-        color: textColor,
+        backgroundColor:
+          backgroundColor ||
+          (isDarkMode
+            ? theme.palette.primary.dark
+            : theme.palette.primary.main),
+        color:
+          textColor ||
+          (isDarkMode
+            ? theme.palette.text.primary
+            : theme.palette.text.secondary),
         borderRadius: borderRadius,
-        "&:hover": {
-          backgroundColor: backgroundColor,
-          opacity: 0.8,
-        },
         "&.Mui-disabled": {
-          backgroundColor: disabledBackgroundColor || backgroundColor,
-          color: disabledTextColor || textColor,
+          backgroundColor:
+            backgroundColor ||
+            (isDarkMode
+              ? theme.palette.primary.dark
+              : theme.palette.primary.main),
+          color:
+            textColor ||
+            (isDarkMode
+              ? theme.palette.text.primary
+              : theme.palette.text.secondary),
           opacity: 0.5,
         },
       }}

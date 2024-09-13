@@ -15,6 +15,10 @@
 html {
   font-size: calc((1vw + 1vh) / 2); /* Average of viewport width and height */
 }
+/*html {
+  font-size: clamp(12px, calc((1vw + 1vh) / 2), 24px);
+}}*/
+
 /*
 a {
   font-weight: 500;
